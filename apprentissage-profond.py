@@ -4,6 +4,7 @@ from sklearn.datasets import make_blobs, make_circles
 from sklearn.metrics import accuracy_score, log_loss
 from tqdm import tqdm
 
+#Initialisation du dataset                  Ici vous pouvez insérer votre dataset en modifiant un peu le code, là pour l'exemple le dataset est généré aléatoirement
 def initialisation(dimensions):
     
     parametres = {}
@@ -16,7 +17,8 @@ def initialisation(dimensions):
         parametres['b' + str(c)] = np.random.randn(dimensions[c], 1)
 
     return parametres
-  
+
+#Equation de forward-propagation                        Les expliquations pour ces equations viendront plus tard, mais en gros ces 2 equations qui viennent sont des equations traduites en python pour les integrer au code
 def forward_propagation(X, parametres):
   
   activations = {'A0': X}
@@ -30,6 +32,7 @@ def forward_propagation(X, parametres):
 
   return activations
 
+#Equation de back-propagation
 def back_propagation(y, parametres, activations):
 
   m = y.shape[1]
@@ -46,6 +49,7 @@ def back_propagation(y, parametres, activations):
 
   return gradients
 
+# Cette fonction permet de mettre a jour les parametres de nos neuronnes pendant la descent de gradient
 def update(gradients, parametres, learning_rate):
 
     C = len(parametres) // 2
@@ -55,7 +59,8 @@ def update(gradients, parametres, learning_rate):
         parametres['b' + str(c)] = parametres['b' + str(c)] - learning_rate * gradients['db' + str(c)]
 
     return parametres
-  
+
+# Cette fonction sera le calcul de prédiction final
 def predict(X, parametres):
   
   activations = forward_propagation(X, parametres)
@@ -64,6 +69,7 @@ def predict(X, parametres):
   
   return Af >= 0.5
 
+# Cette fonction est le résseau de neuronnes en action, avec au debut les paramètres d'initialisation où on y inclut le dataset à entrainer, les paramètres s'ajuste avant d'effectuer le calcul final et de nous afficher lacourbe d'apprentissage
 def deep_neural_network(X, y, hidden_layers = (16, 16, 16), learning_rate = 0.001, n_iter = 3000):
     
     # initialisation parametres
