@@ -1,2 +1,2 @@
 # IA
-Exemple de programme allant de la régression linéaire au réseau de neuronnes
+Exemple de programmes allant de la régression linéaire aux réseaux de neuronnes
