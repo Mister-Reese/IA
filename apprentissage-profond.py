@@ -18,7 +18,7 @@ def initialisation(dimensions):
 
     return parametres
 
-#Equation de forward-propagation                        Les expliquations pour ces equations viendront plus tard, mais en gros ces 2 equations qui viennent sont des equations traduites en python pour les integrer au code
+#Equation de forward-propagation             Les expliquations pour ces equations viendront plus tard, mais en gros ces 2 equations qui viennent sont des equations traduites en python pour les integrer au code
 def forward_propagation(X, parametres):
   
   activations = {'A0': X}
