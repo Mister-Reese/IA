@@ -49,7 +49,7 @@ def back_propagation(y, parametres, activations):
 
   return gradients
 
-# Cette fonction permet de mettre a jour les parametres de nos neuronnes pendant la descent de gradient
+# Cette fonction permet de mettre a jour les parametres de nos neuronnes pendant la descente de gradients
 def update(gradients, parametres, learning_rate):
 
     C = len(parametres) // 2
